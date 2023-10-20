@@ -9,28 +9,33 @@ public class DEA {
         ERROR
     }
 
-    private static State state = State.START;
+    private static State state;
+
+    public static void main(String[] args) {
+        System.out.println(runDEA("BY"));
+    }
 
     public static void consume(char c) {
-        switch (state) {
-            case START:
-                if (c == 'B')
-                    state = State.START;
-                else if (c == 'W')
-                    state = State.BW;
-                else if (c == 'Y')
-                    state = State.BY;
-                else
-                    state = State.ERROR;
-            default:
+        System.out.println("State: " + state + " Input: " + c);
+        if (state == State.START) {
+            if (c == 'B')
+                state = State.START;
+            else if (c == 'W')
+                state = State.BW;
+            else if (c == 'Y')
+                state = State.BY;
+            else
                 state = State.ERROR;
+        } else {
+            state = State.ERROR;
         }
 
     }
 
     public static Boolean runDEA(String input) {
+        state = State.START;
+
         for (int i = 0; i < 2; i++) {
-            System.out.println(input.charAt(i));
             char c = input.charAt(i);
             consume(c);
         }
