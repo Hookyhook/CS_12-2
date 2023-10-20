@@ -20,4 +20,15 @@ public class test {
     public void testForWrong() {
         assertEquals(false, DEA.runDEA("BT"));
     }
+
+    @Test
+    public void testForTooLong() {
+        assertEquals(false, DEA.runDEA("BTYX"));
+    }
+
+    @Test
+
+    public void testForNotAllowedChars() {
+        assertEquals(false, DEA.runDEA("BY!"));
+    }
 }

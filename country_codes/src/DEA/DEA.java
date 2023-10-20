@@ -35,7 +35,7 @@ public class DEA {
     public static Boolean runDEA(String input) {
         state = State.START;
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
             consume(c);
         }
